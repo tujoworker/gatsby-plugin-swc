@@ -1,0 +1,35 @@
+{
+  "name": "monorepo",
+  "workspaces": [
+    "example-basic",
+    "gatsby-plugin-swc"
+  ],
+  "private": true,
+  "license": "MIT",
+  "author": "Tobias Høegh",
+  "version": "0.0.0",
+  "scripts": {
+    "watch": "nodemon --exec 'yarn start'  --ext '*' --watch '*' --ignore '**/pages/*' --ignore '**/.cache/*' --ignore '**/public/*'",
+    "watch:build": "nodemon --exec 'yarn build'  --ext '*' --watch '*' --ignore '**/pages/*' --ignore '**/.cache/*' --ignore '**/public/*'",
+    "start": "yarn workspace example-basic start",
+    "build": "yarn workspace example-basic build",
+    "serve": "yarn workspace example-basic serve",
+    "clean": "yarn workspace example-basic clean",
+    "test": "yarn workspace integration-tests test",
+    "test:cypress": "yarn workspace integration-tests test:cypress",
+    "test:cypress:ci": "yarn workspace integration-tests test:cypress:ci",
+    "test:watch": "yarn workspace integration-tests test --watch",
+    "lint": "yarn workspace gatsby-plugin-swc lint",
+    "release": "yarn workspace gatsby-plugin-swc release"
+  },
+  "dependencies": {
+    "nodemon": "2.0.16"
+  },
+  "resolutions": {
+    "css-minimizer-webpack-plugin/@parcel/css": "1.8.2"
+  },
+  "volta": {
+    "node": "16.1.0"
+  },
+  "packageManager": "yarn@3.2.0"
+}

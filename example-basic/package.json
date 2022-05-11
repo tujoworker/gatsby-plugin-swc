@@ -1,0 +1,24 @@
+{
+  "name": "example-basic",
+  "private": true,
+  "version": "0.0.0",
+  "main": "gatsby-config.js",
+  "license": "MIT",
+  "author": "Tobias Høegh",
+  "scripts": {
+    "start": "gatsby develop --port=8090",
+    "build": "gatsby build --no-uglify",
+    "serve": "gatsby serve --port=9090",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@emotion/react": "11.9.0",
+    "@emotion/styled": "11.8.1",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.6",
+    "gatsby": "4.13.1",
+    "gatsby-plugin-swc": "workspace:*",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-refresh": "0.13.0"
+  }
+}

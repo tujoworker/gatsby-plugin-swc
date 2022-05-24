@@ -6,7 +6,7 @@
     "gatsby-plugin",
     "swc"
   ],
-  "version": "0.0.1",
+  "version": "0.0.3",
   "license": "MIT",
   "author": "Tobias Høegh",
   "main": "index.js",

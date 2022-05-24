@@ -81,6 +81,7 @@ function replaceBabelLoader(rule, options) {
     }
   } else if (rule.use || rule.loader) {
     Object.assign(rule, useSwcLoader(options?.swcOptions))
+    delete rule.use
   }
 
   return rule
@@ -104,12 +105,13 @@ module.exports.onCreateWebpackConfig = (
     ...options,
     jsc: {
       parser: {
-        syntax: 'ecmascript', // "ecmascript" | "typescript"
+        syntax: 'typescript', // "ecmascript" | "typescript"
         jsx: true,
+        tsx: true,
         dynamicImport: true,
         ...options?.jsc?.parser,
       },
-      target: options?.target ?? (isDev ? 'es2017' : 'es2015'),
+      target: options?.target ?? (isDev ? 'es2017' : undefined),
       transform: {
         react: {
           runtime: config.jsxRuntime,
@@ -168,7 +170,6 @@ module.exports.onCreateWebpackConfig = (
       webpackConfig.optimization.minimizer.map((plugin) => {
         if (plugin.constructor.name === 'TerserPlugin') {
           plugin = new ESBuildMinifyPlugin({
-            target,
             implementation: swc,
           })
         }
